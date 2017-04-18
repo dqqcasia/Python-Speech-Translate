@@ -1,6 +1,11 @@
-﻿
-import requests
+﻿"""
+Code example for getting languages supported by Microsoft Translator API.
+Visit http://docs.microsofttranslator.com/languages.html to view the API reference.
+"""
+
 import uuid
+
+import requests
 
 API_BASE_URL = 'https://dev.microsofttranslator.com'
 API_SUPPORTED_LANGUAGES_URL = API_BASE_URL + '/languages'
@@ -10,21 +15,23 @@ def get_supported_languages(scope=None, locale=None):
 
     # Specify request headers
     # Always include an identifier to identify the request if it should be traced
-    headers = { 'X-ClientTraceId': str(uuid.uuid4()) }
+    headers = {'X-ClientTraceId': str(uuid.uuid4())}
     # If localization of names is desired, specify the target language
-    if locale: headers['Accept-Language'] = str(locale)
+    if locale:
+        headers['Accept-Language'] = str(locale)
 
     # Specify query parameters
     # Always include the desired version of the API
-    params = { 'api-version': '1.0' }
+    params = {'api-version': '1.0'}
     # Specify specific scopes to get.
-    if scope: params['scope'] = scope
+    if scope:
+        params['scope'] = scope
 
-    r = requests.get(API_SUPPORTED_LANGUAGES_URL, params=params, headers=headers)
+    response = requests.get(API_SUPPORTED_LANGUAGES_URL, params=params, headers=headers)
 
-    r.raise_for_status()
+    response.raise_for_status()
 
-    return r.json()
+    return response.json()
 
 class LanguageViewItem(object):
     DisplayName = ''

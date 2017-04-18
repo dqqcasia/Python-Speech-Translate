@@ -13,7 +13,7 @@ import sys
 
 import websocket
 
-from adm import AdmOAuthClient
+from auth import AzureAuthClient
 
 def get_wave_header(frame_rate):
     """
@@ -109,9 +109,8 @@ class WaveFileAudioSource(object):
 
 if __name__ == "__main__":
 
-    client_id = 'INSERT YOUR CLIENT ID'
     client_secret = 'INSERT YOUR CLIENT SECRET'
-    adm_client = AdmOAuthClient(client_id, client_secret)
+    auth_client = AzureAuthClient(client_secret)
 
     # Audio file(s) to transcribe
     audio_file = 'INSERT AUDIO FILE FULL PATH'
@@ -219,7 +218,7 @@ if __name__ == "__main__":
     ws_client = websocket.WebSocketApp(
         request_url,
         header=[
-            'Authorization: Bearer ' + adm_client.get_access_token(),
+            'Authorization: Bearer ' + auth_client.get_access_token(),
             'X-ClientTraceId: ' + client_trace_id
         ],
         on_open=on_open,

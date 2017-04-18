@@ -1,37 +1,46 @@
 # Python-Speech-Translate
 
--You will need to setup a subscription with Microsoft Translator. [Click Here] (https://www.microsoft.com/en-us/translator/default.aspx) to get started.
+This sample requires a subscription with Microsoft Translator Speech Translation API, which is part of Microsoft Azure Cognitive Services. Visit the [Speech Translation API documentation page](http://docs.microsofttranslator.com/speech-translate.html) to get started.
 
--Speech API documentation can be [found here.] (https://docs.microsofttranslator.com/)
 
 ## Setup
 Samples are written for Python 2 and assume that `pip` is installed. Recent versions of Python 2.7 come with `pip`.
 
-The [`requests`](http://docs.python-requests.org/en/master/) and ['websocket-client'](https://pypi.python.org/pypi/websocket-client) packages are required:
+The [`requests`](http://docs.python-requests.org/en/master/) and [`websocket-client`](https://pypi.python.org/pypi/websocket-client) packages are required:
 
+```
 pip install requests
 pip install websocket-client
+```
 
 ## Getting list of supported languages (languages.py)
-This sample demonstrates how to obtain the list of languages supported by the speech translation API.
+This sample demonstrates how to obtain the list of languages supported by the Speech Translation API. 
 
+Run the example with:
+
+```
 python languages.py
+```
 
 ## Speech Translate (speech.py)
-This sample demonstrates the use of Microsoft Translator Speech Translation API by translating an audio file
+This sample demonstrates the use of Microsoft Translator Speech Translation API by translating an audio file.
 
-Fill your Azure Data Market Credentials
+Before running the example.
 
-client_id = 'INSERT YOUR CLIENT ID'
+1. Fill your Azure Data Market Credentials
 
-client_secret = 'INSERT YOUR CLIENT SECRET'
+   ```client_secret = 'INSERT YOUR CLIENT SECRET'```
 
-Fill in the name of your audio file (PCM 16bit 16kHz mono WAV)
+1. Fill in the name of your audio file (PCM, 16 bit, 16 kHz, mono, WAV)
 
-audio_file = 'INSERT AUDIO FILE FULL PATH'
+    ```audio_file = 'INSERT AUDIO FILE FULL PATH'```
 
+Run the example with:
+
+```
 python speech.py
+```
 
-## Getting Azure Data Market Token (adm.py)
-This class illustrates how to get an Azure Data Market token given a Client Id and Client Secret
+## Getting an authentication token from the Azure platform (auth.py)
+This class illustrates how to get an authentication token given a client secret. The client secret is the key associated with your Azure Cognitive Services subscription for the Speech Translation API. The value of the key is available in the Azure developer portal.
 

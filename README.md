@@ -1,5 +1,7 @@
 # Python-Speech-Translate
 
+**Note: The new Speech Service and SDK is replacing the Microsoft Translator Speech API, which will no longer work starting October 15, 2019. For information on switching to the Speech Service, see [Migrating from the Custom Speech Service to the Speech Service](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service).**
+
 This sample requires a subscription with Microsoft Translator Speech Translation API, which is part of Microsoft Azure Cognitive Services. Visit the [Speech Translation API documentation page](http://docs.microsofttranslator.com/speech-translate.html) to get started.
 
 
